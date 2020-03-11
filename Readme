@@ -349,6 +349,8 @@ VLAN Name                             Status    Ports
 1005 trnet-default                    act/unsup
 2000 VLAN2000                         active
 
+Удобство управление VLAN-ми в сети при росте организации.
+Ошибка в конфигурировании может всё порушить.
 
 
 
