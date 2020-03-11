@@ -21,18 +21,60 @@ Configuration last modified by 0.0.0.0 at 3-10-20 21:26:41
 
 Feature VLAN:
 --------------
-VTP Operating Mode                : Transparent
+VTP Operating Mode                : Client
 Maximum VLANs supported locally   : 1005
 Number of existing VLANs          : 9
-Configuration Revision            : 0
+Configuration Revision            : 4
+MD5 digest                        : 0x4F 0x87 0x66 0xB8 0xDB 0xC7 0x7B 0x57
+                                    0x38 0xED 0xD6 0xF4 0xF3 0x46 0xEA 0x54
+                                    
+S2
+VTP Version capable             : 1 to 3
+VTP version running             : 1
+VTP Domain Name                 : CCNA
+VTP Pruning Mode                : Disabled
+VTP Traps Generation            : Disabled
+Device ID                       : aabb.cc00.2000
+Configuration last modified by 0.0.0.0 at 3-10-20 21:26:41
+Local updater ID is 192.168.99.2 on interface Vl99 (lowest numbered VLAN interface found)
+
+Feature VLAN:
+--------------
+VTP Operating Mode                : Server
+Maximum VLANs supported locally   : 1005
+Number of existing VLANs          : 9
+Configuration Revision            : 4
 MD5 digest                        : 0x4F 0x87 0x66 0xB8 0xDB 0xC7 0x7B 0x57
                                     0x38 0xED 0xD6 0xF4 0xF3 0x46 0xEA 0x54
 
+S3
+VTP Version capable             : 1 to 3
+VTP version running             : 1
+VTP Domain Name                 : CCNA
+VTP Pruning Mode                : Disabled
+VTP Traps Generation            : Disabled
+Device ID                       : aabb.cc00.3000
+Configuration last modified by 0.0.0.0 at 3-10-20 21:26:41
+
+Feature VLAN:
+--------------
+VTP Operating Mode                : Client
+Maximum VLANs supported locally   : 1005
+Number of existing VLANs          : 9
+Configuration Revision            : 4
+MD5 digest                        : 0x4F 0x87 0x66 0xB8 0xDB 0xC7 0x7B 0x57
+                                    0x38 0xED 0xD6 0xF4 0xF3 0x46 0xEA 0x54
+                                    
+                                    
+2 Настройка DTP
+Из вывода команды "show interfaces f0/1 switchport" на S1 и S2 видно, что:
+административный режим - dynamic auto
+оперативный режим - static access
 
 
 
 4 Настройка расширенной сети VLAN
-Командой S1(config)# vtp mode transparent поменял статус VTP.
+Шаг 1: Командой S1(config)# vtp mode transparent поменял статус VTP.
 
 VTP Version capable             : 1 to 3
 VTP version running             : 1
@@ -50,4 +92,22 @@ Number of existing VLANs          : 9
 Configuration Revision            : 0
 MD5 digest                        : 0x4F 0x87 0x66 0xB8 0xDB 0xC7 0x7B 0x57
                                     0x38 0xED 0xD6 0xF4 0xF3 0x46 0xEA 0x54
+
+Шаг 2: Командой S1(config)# vlan 2000 создал VLAN расширенного диапазона.
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Et0/3
+10   Red                              active    Et0/2
+20   Blue                             active
+30   Yellow                           active
+99   Managment                        active
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+2000 VLAN2000                         active
+
+
+
 
