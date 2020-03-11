@@ -179,7 +179,64 @@ S*(config)# interface ether0/*
 S*(config-if)# switchport mode dynamic desirable
 S*(config-if)# switchport mode trunk
 
-3 Добавление сетей VLAN и назначение портов
+3 Добавление сетей VLAN и назначение портов - шаг 1
+
+а) Нет, так как он client, а не сервер VTP
+б) Выполнил указанные в методичке команды на S2:
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Et0/0
+10   Red                              active
+20   Blue                             active    Et0/2
+30   Yellow                           active
+99   Managment                        active
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+
+3 Добавление сетей VLAN и назначение портов - шаг 2
+
+Проверка обновления VTP на S1 и S3:
+S1
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Et0/3
+10   Red                              active    Et0/2
+20   Blue                             active
+30   Yellow                           active
+99   Managment                        active
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+2000 VLAN2000                         active
+
+S3
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Et0/2
+10   Red                              active    Et0/1
+20   Blue                             active
+30   Yellow                           active
+99   Managment                        active
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+
+Использовал команду "show vlan".
+
+3 Добавление сетей VLAN и назначение портов - шаг 3
+
+Как видно из настроек VLAN в "3 Добавление сетей VLAN и назначение портов - шаг 2" порты назначены согласно лаборатоному заданию.
+
+
+
+
+
+
+
 
 
 
