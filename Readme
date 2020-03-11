@@ -1,3 +1,8 @@
+
+
+
+
+
 ###  Задание
 
 1 Настройка VTP
@@ -231,17 +236,84 @@ VLAN Name                             Status    Ports
 
 Как видно из настроек VLAN в "3 Добавление сетей VLAN и назначение портов - шаг 2" порты назначены согласно лаборатоному заданию.
 
+Настройки VPC:
+A
+NAME   IP/MASK              GATEWAY                             GATEWAY
+VPCS1  192.168.10.1/24      0.0.0.0
+       fe80::250:79ff:fe66:6804/64
+
+B
+NAME   IP/MASK              GATEWAY                             GATEWAY
+VPCS1  192.168.20.1/24      0.0.0.0
+       fe80::250:79ff:fe66:6805/64
+
+C
+NAME   IP/MASK              GATEWAY                             GATEWAY
+VPCS1  192.168.10.2/24      0.0.0.0
+       fe80::250:79ff:fe66:6806/64
+
+3 Добавление сетей VLAN и назначение портов - шаг 4
+Используя команды:
+S*(config)# interface vlan 99
+S*(config-if)# ip address 192.168.99.* 255.255.255.0
+S*(config-fi)# no shutdown
+Настроил ip для SVI VLAN 99 на 3-х коммутаторах. 
+S1
+Vlan99 is up, line protocol is up
+  Hardware is Ethernet SVI, address is aabb.cc80.1000 (bia aabb.cc80.1000)
+  Internet address is 192.168.99.1/24
+
+S2
+Vlan99 is up, line protocol is up
+  Hardware is Ethernet SVI, address is aabb.cc80.2000 (bia aabb.cc80.2000)
+  Internet address is 192.168.99.2/24
+
+S3
+Vlan99 is up, line protocol is up
+  Hardware is Ethernet SVI, address is aabb.cc80.3000 (bia aabb.cc80.3000)
+  Internet address is 192.168.99.3/24
+  
+3 Добавление сетей VLAN и назначение портов - шаг 5
+
+a) VPCS> ping 192.168.10.1
+
+No gateway found
+Не настроен шлюз и разные VLAN.
+
+б) VPCS> ping 192.168.10.2
+
+84 bytes from 192.168.10.2 icmp_seq=1 ttl=64 time=0.422 ms
+84 bytes from 192.168.10.2 icmp_seq=2 ttl=64 time=0.530 ms
+84 bytes from 192.168.10.2 icmp_seq=3 ttl=64 time=0.796 ms
+84 bytes from 192.168.10.2 icmp_seq=4 ttl=64 time=0.670 ms
+84 bytes from 192.168.10.2 icmp_seq=5 ttl=64 time=0.489 ms
+
+Один VLAN
+
+c) Switch#ping 192.168.10.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.10.1, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+Разные VLAN и у SVI VLAN10 нет ip.
+
+
+d) Switch#ping 192.168.99.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.99.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+Успешно по VLAN99.
 
 
 
 
 
 
+4 Настройка расширенной сети VLAN - шаг 1
 
-
-
-4 Настройка расширенной сети VLAN
-Шаг 1: Командой S1(config)# vtp mode transparent поменял статус VTP.
+Командой S1(config)# vtp mode transparent поменял статус VTP.
 
 VTP Version capable             : 1 to 3
 VTP version running             : 1
@@ -260,7 +332,9 @@ Configuration Revision            : 0
 MD5 digest                        : 0x4F 0x87 0x66 0xB8 0xDB 0xC7 0x7B 0x57
                                     0x38 0xED 0xD6 0xF4 0xF3 0x46 0xEA 0x54
 
-Шаг 2: Командой S1(config)# vlan 2000 создал VLAN расширенного диапазона.
+4 Настройка расширенной сети VLAN - шаг 2
+
+Командой S1(config)# vlan 2000 создал VLAN расширенного диапазона.
 
 VLAN Name                             Status    Ports
 ---- -------------------------------- --------- -------------------------------
