@@ -18,8 +18,8 @@
    а. "S1(config)#no ip domain-lookup" для всех 3-х устройств;
    б. "S1(config)#hostname S1" для всех 3-х устройств;
    с. "S1(config)#enable secret class" для всех 3-х устройств;
-   d. "S1(config-line)#password cisco"  и "S1(config-line)#login" для всех 3-х устройств,
-      "S1(config)#line vty 0 4" и две аналогичные команды из строчки выше для всех 3-х устройств.
+   d. "S1(config-line)#password cisco"  и "S1(config-line)#login" для всех 3-х устройств;
+      "S1(config)#line vty 0 4" и две аналогичные команды из строчки выше для всех 3-х устройств;
    e. "S1(config)#line console 0" и "S1(config-line)#logging synchronous" для всех 3-х устройств;
   
    
