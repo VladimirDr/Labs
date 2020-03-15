@@ -15,12 +15,14 @@
 
 ## Шаг 3:	Настройте базовые параметры каждого коммутатор.
    
-   1. "S1(config)#no ip domain-lookup" для всех 3-х устройств;
-   2. "S1(config)#hostname S1" для всех 3-х устройств;
-   3. "S1(config)#enable secret class" для всех 3-х устройств;
-   4. "S1(config)#line console 0", "S1(config-line)#password cisco", "S1(config-line)#login" для всех 3-х устройств, 
-      "S1(config)#line vty 0 4" и две аналогичные команды из строчки выше для всех 3-х устройств;
-   5. "S1(config)#line console 0" и "S1(config-line)#logging synchronous" для всех 3-х устройств;
-   6. "S1(config)#banner motd # ... #" настроил банерное сообщение;
-   7. 
+   1. "S*(config)#no ip domain-lookup" для всех 3-х устройств;
+   2. "S*(config)#hostname S1" для всех 3-х устройств;
+   3. "S*(config)#enable secret class" для всех 3-х устройств;
+   4. "S*(config)#line console 0", "S1(config-line)#password cisco", "S1(config-line)#login" для всех 3-х устройств, 
+      "S*(config)#line vty 0 4" и две аналогичные команды из строчки выше для всех 3-х устройств;
+   5. "S*(config)#line console 0" и "S1(config-line)#logging synchronous" для всех 3-х устройств;
+   6. "S*(config)#banner motd # ... #" настроил банерное сообщение;
+   7. "S*(config)#interface vlan 1", "S*(config-if)#ip address 192.168.1.* 255.255.255.0", "S*(config-if)#no shutdown" для всех 3-х     устройств,
+   8. "S*#copy running-config startup-config" для всех 3-х устройств.
+   
    
