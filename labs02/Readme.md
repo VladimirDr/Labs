@@ -190,20 +190,48 @@ Et0/3               Altn BLK 100       128.4    Shr
 
 Почему протокол spanning-tree заменяет ранее заблокированный порт на назначенный порт и блокирует порт, который был назначенным портом на другом коммутаторе? Так как меняется стоимость корневого пути.
 
-VLAN0001
-Spanning tree enabled protocol ieee
-Root ID    Priority    32769
-Address     aabb.cc00.1000
-This bridge is the root
-Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+## Шаг 4:	Удалите изменения стоимости порта.
 
-Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
-Address     aabb.cc00.1000
-Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
-Aging Time  300 sec
+   "S3(config)#interface ethernet 0/3" и "S3(config-if)#no spanning-tree cost 18"
+   
+## S3#show spanning-tree
+
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     aabb.cc00.1000
+             Cost        100
+             Port        4 (Ethernet0/3)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.3000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  15  sec
 
 Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/1               Altn BLK 100       128.2    Shr
+Et0/3               Root FWD 100       128.4    Shr
 
-Et0/1               Desg FWD 100       128.2    Shr
+## S2#show spanning-tree
+
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     aabb.cc00.1000
+             Cost        100
+             Port        2 (Ethernet0/1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.2000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  15  sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/1               Root FWD 100       128.2    Shr
 Et0/3               Desg FWD 100       128.4    Shr
+
 
