@@ -234,4 +234,6 @@ Interface           Role Sts Cost      Prio.Nbr Type
 Et0/1               Root FWD 100       128.2    Shr
 Et0/3               Desg FWD 100       128.4    Shr
 
+# Часть 4:	Наблюдение за процессом выбора протоколом STP порта, исходя из приоритета портов.
 
+   a. "S*(config)#interface ethernet 0/*" "S1(config-if)#no shutdown" для всех 3-х устройств.     
