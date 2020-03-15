@@ -47,7 +47,7 @@
    
 ## Шаг 4:	Отобразите данные протокола spanning-tree.
  
-  1. S1#show spanning-tree
+## S1show spanning-tree
 
 VLAN0001
   Spanning tree enabled protocol ieee
@@ -66,8 +66,7 @@ Interface           Role Sts Cost      Prio.Nbr Type
 Et0/1               Desg FWD 100       128.2    Shr
 Et0/3               Desg FWD 100       128.4    Shr
 
-
-   S2#show spanning-tree
+## S2#show spanning-tree
 
 VLAN0001
   Spanning tree enabled protocol ieee
@@ -87,7 +86,7 @@ Interface           Role Sts Cost      Prio.Nbr Type
 Et0/1               Root FWD 100       128.2    Shr
 Et0/3               Desg FWD 100       128.4    Shr
 
-   S3#show spanning-tree
+## S3#show spanning-tree
 
 VLAN0001
   Spanning tree enabled protocol ieee
@@ -106,3 +105,5 @@ Interface           Role Sts Cost      Prio.Nbr Type
 ------------------- ---- --- --------- -------- --------------------------------
 Et0/1               Altn BLK 100       128.2    Shr
 Et0/3               Root FWD 100       128.4    Shr
+
+
