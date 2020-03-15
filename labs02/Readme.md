@@ -21,5 +21,6 @@
    4. "S1(config)#line console 0", "S1(config-line)#password cisco", "S1(config-line)#login" для всех 3-х устройств, 
       "S1(config)#line vty 0 4" и две аналогичные команды из строчки выше для всех 3-х устройств;
    5. "S1(config)#line console 0" и "S1(config-line)#logging synchronous" для всех 3-х устройств;
-  
+   6. "S1(config)#banner motd # ... #" настроил банерное сообщение;
+   7. 
    
