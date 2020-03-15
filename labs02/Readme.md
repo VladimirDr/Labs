@@ -142,5 +142,30 @@ Interface           Role Sts Cost      Prio.Nbr Type
 Et0/1               Altn BLK 100       128.2    Shr
 Et0/3               Root FWD 100       128.4    Shr
 
+## Шаг 2:	Измените стоимость порта.
 
+   "S3(config)#interface ethernet 0/3" и "S3(config-if)#spanning-tree cost 18"
    
+## Шаг 3:	Просмотрите изменения протокола spanning-tree.
+ 
+## S3#show spanning-tree
+
+   VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     aabb.cc00.1000
+             Cost        18
+             Port        4 (Ethernet0/3)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.3000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  15  sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/1               Desg LRN 100       128.2    Shr
+Et0/3               Root FWD 18        128.4    Shr
+
+
