@@ -298,3 +298,5 @@ Et0/3               Altn BLK 100       128.4    Shr
 
 
 ![Конфиг S1](https://github.com/VladimirDr/Labs/blob/master/labs02/ConfigS1)
+![Конфиг S2](https://github.com/VladimirDr/Labs/blob/master/labs02/ConfigS2)
+![Конфиг S3](https://github.com/VladimirDr/Labs/blob/master/labs02/ConfigS3)
