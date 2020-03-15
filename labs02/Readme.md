@@ -237,4 +237,56 @@ Et0/3               Desg FWD 100       128.4    Shr
 # Часть 4:	Наблюдение за процессом выбора протоколом STP порта, исходя из приоритета портов.
 
    a. "S*(config)#interface ethernet 0/* " и "S1(config-if)#no shutdown" для портов 0/0 и 0/2 на всех 3-х устройствах.
-   
+   b. 
+##   S2#show spanning-tree
+
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     aabb.cc00.1000
+             Cost        100
+             Port        1 (Ethernet0/0)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.2000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Root FWD 100       128.1    Shr
+Et0/1               Altn BLK 100       128.2    Shr
+Et0/2               Desg FWD 100       128.3    Shr
+Et0/3               Desg FWD 100       128.4    Shr
+
+## S3#show spanning-tree
+
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     aabb.cc00.1000
+             Cost        100
+             Port        3 (Ethernet0/2)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.3000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Altn BLK 100       128.1    Shr
+Et0/1               Altn BLK 100       128.2    Shr
+Et0/2               Root FWD 100       128.3    Shr
+Et0/3               Altn BLK 100       128.4    Shr
+
+Какой порт выбран протоколом STP в качестве порта корневого моста на каждом коммутаторе некорневого моста? S2 Et0/0, S3 Et0/2
+Почему протокол STP выбрал эти порты в качестве портов корневого моста на этих коммутаторах? При всех равных условиях(стоимость порта и BID) в расчёт берётся наименьший номер порта.
+
+## 	Вопросы для повторения
+
+1.	Какое значение протокол STP использует первым после выбора корневого моста, чтобы определить выбор порта? Стоимость порта.
+2.	Если первое значение на двух портах одинаково, какое следующее значение будет использовать протокол STP при выборе порта? Номер порта.
+3.	Если оба значения на двух портах равны, каким будет следующее значение, которое использует протокол STP при выборе порта? Нет такого.
