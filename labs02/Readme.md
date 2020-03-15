@@ -92,12 +92,12 @@ Et0/3               Desg FWD 100       128.4    Shr
 
 ## S3#show spanning-tree
 
-VLAN0001
-  Spanning tree enabled protocol ieee
-  Root ID    Priority    32769
-             Address     aabb.cc00.1000
-             Cost        100
-             Port        4 (Ethernet0/3)
+>VLAN0001
+ > Spanning tree enabled protocol ieee
+ > Root ID    Priority    32769
+ >            Address     aabb.cc00.1000
+ >            Cost        100
+ >            Port        4 (Ethernet0/3)
              Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
 
   Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
