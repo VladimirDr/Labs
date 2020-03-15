@@ -21,5 +21,5 @@
    d. "S1(config-line)#password cisco"  и "S1(config-line)#login" для всех 3-х устройств,
       "S1(config)#line vty 0 4" и две аналогичные команды из строчки выше для всех 3-х устройств.
    e. "S1(config)#line console 0" и "S1(config-line)#logging synchronous" для всех 3-х устройств;
-   f. 
+  
    
