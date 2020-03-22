@@ -37,6 +37,7 @@
 # Часть 2:	Настройка протокола PAgP.
 
 ## Шаг 1:	Настройте PAgP на S1 и S3.
-
+ 
+ ![Конфиг](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/ConfigS1.png)
 
  
