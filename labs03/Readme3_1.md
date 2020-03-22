@@ -24,5 +24,13 @@
     "S*(config)#line vty 0 4" и две аналогичные команды из строчки выше для всех 3-х устройств;
  7. "logging synchronous" изначально присутствует в конфиге для line con 0;   
  8. "S*(config)#interface range ethernet 0/0-3 и 1/0-3" и "S*(config-if-range)#shutdown" для всех 3-х устройств;
- 9. "S*(config)#vlan 99" и "S1(config-vlan)#name Managment", "S1(config)#vlan 10" и "S1(config-vlan)#name Staff" для всех 3-х устройств;
- 
+ 9. "S*(config)#vlan 99" и "S*(config-vlan)#name Managment" для всех 3-х устройств; 
+10. "S*(config)#vlan 10" и "S*(config-vlan)#name Staff" для всех 3-х устройств;
+11. "S*(config)#interface ethernet 1/0" и "S*(config-if)#switchport access vlan 10" для всех 3-х устройств;
+12. "S*(config)#interface vlan 99" и "S*(config-if)#ip address 192.168.99.1,2,3 255.255.255.0" и "S*(config-if)#no shutdown" для всех 3-х устройств;
+13. "S*#copy running-config startup-config" для всех 3-х устройств;
+
+## Шаг 4:	Настройте компьютеры.
+
+   VPCS> ip 192.168.10.1,2,3/24 для всех 3-х устройств.
+   
