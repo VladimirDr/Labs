@@ -4,7 +4,7 @@
 
 ![Схема](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/Cxema.png)
 
-
+![Таблица](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/Tabl.png)
 
 # Часть 1:	Настройка основных параметров коммутатора.
 
