@@ -58,8 +58,10 @@
  ![Проверка](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/Port_trunk.png)
  
    1. Согласно выводу запроса "show run interface" разница между настройками физических каналов и EtherChannel в том, кто в составе кого. Физические каналы унаследовали настройки, которые мы применили к EtherChannel.
-   2. 
+   2. Транковый порт-EtherChannel(Po1), Native Vlan 99.
+      STP построен на EtherChannel(Po1). Выбран корневой мост S1(по наименьшему mac-адресу). И стоимость порта Po1 стала в два раза меньше, так как суммарная скорость доставки по Po1 быстрее. А вот как номер порта посчитался я не понял-128.65. 
    ![Схема](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/STP.png)
+   
  
 
   
