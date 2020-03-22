@@ -46,6 +46,6 @@
  
 ## Шаг 3:	Убедитесь, что порты объединены.
 
-   
+ ![Проверка](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/S_ether_sum.png)  
 
  
