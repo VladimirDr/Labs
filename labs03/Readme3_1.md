@@ -2,9 +2,9 @@
 
 ## Топология
 
-Схема
+![Схема](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/Cxema.png)
 
-Таблица адресации
+
 
 # Часть 1:	Настройка основных параметров коммутатора.
 
