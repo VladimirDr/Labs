@@ -55,4 +55,8 @@
    
 ## Шаг 5:	Убедитесь в том, что порты настроены в качестве транковых.
 
+ ![Проверка](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/Port_trunk.png)
+ 
+ 
+
   
