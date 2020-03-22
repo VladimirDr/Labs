@@ -43,5 +43,9 @@
 ## Шаг 2:	Проверьте конфигурации на портах.
 
  ![Конфиг](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/ConfigS1.png)
+ 
+## Шаг 3:	Убедитесь, что порты объединены.
+
+   
 
  
