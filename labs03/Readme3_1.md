@@ -57,6 +57,9 @@
 
  ![Проверка](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/Port_trunk.png)
  
+   1. Согласно выводу запроса "show run interface" разница между настройками физических каналов и EtherChannel в том, кто в составе кого. Физические каналы унаследовали настройки, которые мы применили к EtherChannel.
+   2. 
+ 
  
 
   
