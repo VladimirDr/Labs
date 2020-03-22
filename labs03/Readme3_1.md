@@ -72,5 +72,5 @@
   ![Схема](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/LACP.png)
   
 ## Шаг 3:	Настройте LACP между S2 и S3.  
-  
-  
+   Выполнил команды из методички, всё сработало успешно.
+  ![Схема](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/LACP2.png)
