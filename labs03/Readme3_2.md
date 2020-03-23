@@ -19,3 +19,4 @@
 ## Шаг 4:	Загрузите конфигурации коммутаторов.
    Ниже конфиги коммутаторов:
 ![Схема](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/S1_3_2.png)  
+![Схема](https://github.com/VladimirDr/Labs/blob/master/labs03/Screens/S2_3_2.png)
