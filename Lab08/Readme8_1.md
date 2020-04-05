@@ -22,4 +22,15 @@
   Выполнено.
   
   ## Шаг 4:	Произведите базовую настройку маршрутизаторов.
+   1. "R*(config)#no ip domain-lookup" для всех 3-х устройств;
+   2. "R*(config)#hostname R*" для всех 3-х устройств;
+   3. "R*(config)#service password-encryption" для всех 3-х устройств;
+   4. "R*(config)#banner motd # This is a secure system. Authorized Access Only! #" для всех 3-х устройств;
+   5. "R*(config)#enable password class" для всех 3-х устройств;
+   6. "R*(config)#line console 0", "R*(config-line)#password cisco", "R*(config-line)#login" для всех 3-х устройств,
+      "R*(config)#line vty 0 4" и две аналогичные команды из строчки выше для всех 3-х устройств;
+   7. "logging synchronous" изначально присутствует в конфиге для line con 0;
+   8. Настроил IP-адреса для маршрутизаторов в соответствии с таблицей адресации. 
+   
+  ## Шаг 5:	Проверьте подключение.
   
