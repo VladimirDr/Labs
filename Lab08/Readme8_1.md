@@ -37,4 +37,23 @@
   
 # Часть 2:	Настройка маршрутизации EIGRP
   ## Шаг 1:	Включите маршрутизацию EIGRP на маршрутизаторе R1. Используйте номер автономной системы 10.
-     R(config)# router eigrp 10
+     R1(config)# router eigrp 10
+     
+  ## Шаг 2:	Объявите напрямую подключенные сети на маршрутизаторе R1, используя шаблонную маску.
+     R1(config-router)# network 10.1.1.0 0.0.0.3
+     R1(config-router)# network 192.168.1.0 0.0.0.255
+     R1(config-router)# network 10.3.3.0 0.0.0.3
+     
+  Комментарии:
+  
+  
+  ## Шаг 3:	Включите маршрутизацию EIGRP и объявите напрямую подключенные сети на маршрутизаторах R2 и R3.
+     "R*(config)# router eigrp 10" для 2 и 3 маршрутизатора.
+     "R2(config-router)# network 10.1.1.0 0.0.0.3"
+     "R2(config-router)# network 192.168.2.0 0.0.0.255"
+     "R2(config-router)# network 10.2.2.0 0.0.0.3"
+     "R3(config-router)# network 10.3.3.0 0.0.0.3"
+     "R3(config-router)# network 192.168.3.0 0.0.0.255"
+     "R3(config-router)# network 10.2.2.0 0.0.0.3"
+     
+     
