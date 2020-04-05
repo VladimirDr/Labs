@@ -55,5 +55,16 @@
      "R3(config-router)# network 10.3.3.0 0.0.0.3"
      "R3(config-router)# network 192.168.3.0 0.0.0.255"
      "R3(config-router)# network 10.2.2.0 0.0.0.3"
-     
+  ## Шаг 4:	Проверьте наличие сквозного соединения.
+  ![схема](https://github.com/VladimirDr/Labs/blob/master/Lab08/Ping8_1(2).png)
+  
+# Часть 3:	Проверка маршрутизации EIGRP
+  ## Шаг 1:	Анализ таблицы соседних устройств EIGRP
+  R1#show ip eigrp neighbors
+  EIGRP-IPv4 Neighbors for AS(10)
+  H   Address                 Interface              Hold Uptime   SRTT   RTO  Q  Seq
+                                                     (sec)         (ms)       Cnt Num
+  1   10.3.3.2                Se1/1                    14 00:10:19   11   100  0  7
+  0   10.1.1.2                Se1/0                    11 00:13:54   15   100  0  10
+
      
