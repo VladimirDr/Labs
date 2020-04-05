@@ -60,7 +60,7 @@
   
 # Часть 3:	Проверка маршрутизации EIGRP
   ## Шаг 1:	Анализ таблицы соседних устройств EIGRP
-  R1#show ip eigrp neighbors
+  ![схема](https://github.com/VladimirDr/Labs/blob/master/Lab08/R1_eigrp_8_1.png)
   
 
      
