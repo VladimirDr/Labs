@@ -67,7 +67,25 @@
   ## Шаг 2:	Проанализируйте таблицу IP-маршрутизации EIGRP.
   Почему у маршрутизатора R1 два пути к сети 10.2.2.0/30? 
   Ответ:так как у R3 свой маршрут до сети 10.2.2.0/30 и из-за этого R1 видит второй маршрут. Через соседа R3.
-  
+  ## Шаг 3:	Проанализируйте таблицу соседних устройств EIGRP.
+  R1#show ip eigrp topology
+EIGRP-IPv4 Topology Table for AS(10)/ID(192.168.1.1)
+Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+       r - reply Status, s - sia Status
+
+P 192.168.3.0/24, 1 successors, FD is 2195456
+        via 10.3.3.2 (2195456/281600), Serial1/1
+P 192.168.2.0/24, 1 successors, FD is 2195456
+        via 10.1.1.2 (2195456/281600), Serial1/0
+P 10.2.2.0/30, 2 successors, FD is 2681856
+        via 10.1.1.2 (2681856/2169856), Serial1/0
+        via 10.3.3.2 (2681856/2169856), Serial1/1
+P 10.3.3.0/30, 1 successors, FD is 2169856
+        via Connected, Serial1/1
+P 192.168.1.0/24, 1 successors, FD is 281600
+        via Connected, Ethernet0/0
+P 10.1.1.0/30, 1 successors, FD is 2169856
+        via Connected, Serial1/0
   
   
 
