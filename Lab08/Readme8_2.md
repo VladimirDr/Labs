@@ -103,4 +103,30 @@
  ![схема](https://github.com/VladimirDr/Labs/blob/master/Lab08/8_2/8_2_route.png)         
  
  
+         f. Выполнил команды из пунктов b,c,d,e(1) на R3.
+      
+# Часть 4:	Настройка и распространение статического маршрута по умолчанию.
+    a. Настроил.
+    b. R2(config)#ip route 0.0.0.0 0.0.0.0 loopback 1
+    c. R2(config-router)#redistribute static
+    e. "D*EX 0.0.0.0/0 [170/3139840] via 192.168.12.2, 00:07:46, Serial1/0" - как кандидат в default EIGRP EXTERNAL AD-170.
+    
+# Часть 5:	Подгонка EIGRP.
+ ## Шаг 1:	Настройте параметры использования пропускной способности для EIGRP.
+    a. R1(config-if)#ip bandwidth-percent eigrp 1 75
+    b. R2(config-if)#ip bandwidth-percent eigrp 1 75
+    c. R1(config-if)#ip bandwidth-percent eigrp 1 40
+    e. R3(config-if)#ip bandwidth-percent eigrp 1 40
+ ## Шаг 2:	Настройте интервал отправки пакетов приветствия (hello) и таймер удержания для EIGRP.
+    a. R2#show ip eigrp interfaces detail 
+       1. Укажите значение таймера приветствия по умолчанию 5 sec.
+       2. Укажите значение таймера удержания по умолчанию  15 sec.
+    b. 
+       1. R1(config)#interface serial 1/0
+       2. R1(config-if)#ip hello-interval eigrp 1 60
+       3. R1(config-if)#ip hold-time eigrp 1 180
+       4. R1(config)#interface serial 1/1
+       5. R1(config-if)#ip hello-interval eigrp 1 60
+       6. R1(config-if)#ip hold-time eigrp 1 180
+    c. Выполнил команды из пункта "b" на R2,R3.
     
