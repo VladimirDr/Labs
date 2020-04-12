@@ -63,3 +63,42 @@
      
  ## Шаг 2:	Проверьте связь.
  ![схема](https://github.com/VladimirDr/Labs/blob/master/Lab08/8_2/Ping8_2(all).png)
+ 
+    Ping между PC-A,B,C так же есть.
+    
+# Часть 3:	Настройка EIGRP для автоматического объединения. 
+ ## Шаг 1:	Настройте EIGRP для автоматического объединения.
+    a. 
+      1. R1#show ip protocols
+      2. Automatic Summarization: disabled
+    b.
+      1. R1(config)#interface loopback 1
+      2. R1(config-if)#ip address 192.168.11.1 255.255.255.252
+      3. R1(config)#interface loopback 5
+      4. R1(config-if)#ip address 192.168.11.5 255.255.255.252
+      5. R1(config)#interface loopback 9
+      6. R1(config-if)#ip address 192.168.11.9 255.255.255.252
+      7. R1(config)#interface loopback 13
+      8. R1(config-if)#ip address 192.168.11.13 255.255.255.252
+    c.
+      1. R1(config)#router eigrp 1
+      2. R1(config-router)#network 192.168.11.0 0.0.0.3
+      3. R1(config-router)#network 192.168.11.4 0.0.0.3
+      4. R1(config-router)#network 192.168.11.8 0.0.0.3
+      5. R1(config-router)#network 192.168.11.12 0.0.0.3
+    d.
+      Как 4 маршрута полученных через EIGRP.
+      1. D        192.168.11.0 [90/3139840] via 192.168.12.1, 00:28:30, Serial1/0
+      2. D        192.168.11.4 [90/3139840] via 192.168.12.1, 00:28:20, Serial1/0
+      3. D        192.168.11.8 [90/3139840] via 192.168.12.1, 00:28:15, Serial1/0
+      4. D        192.168.11.12 [90/3139840] via 192.168.12.1, 00:28:11, Serial1/0
+    e.
+      1. R1(config-router)#auto-summary
+      2. D        192.168.11.0 [90/3139840] via 192.168.12.1, 00:01:27, Serial1/0 вместо 4 маршрутов, как в пункте "d"
+      3. Добавилось ещё 3 маршрута:
+         a. так как R1 объединил интерфейсы 192.168.12.1 и 192.168.12.2 в суммарный маршрут "D        192.168.12.0/24 [90/41536000] via 192.168.23.2, 00:01:27, Serial1/1" и передал его R2.
+         b. так как R1 объединил интерфейсы 192.168.13.1 и 192.168.13.2 в суммарный маршрут "D        192.168.13.0/24 [90/41024000] via 192.168.12.1, 00:01:27, Serial1/0" и передал его R2.
+         c. R3 передал R2 "D        192.168.13.0/30 [90/41024000] via 192.168.23.2, 00:01:27, Serial1/1"
+ ![схема](https://github.com/VladimirDr/Labs/blob/master/Lab08/8_2/8_2_route.png)         
+      null и 192.168.12.0/30 через serial 
+    
