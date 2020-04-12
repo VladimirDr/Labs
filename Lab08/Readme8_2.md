@@ -62,4 +62,4 @@
       7. R3(config-if)#bandwidth 64
      
  ## Шаг 2:	Проверьте связь.
-    
+ ![схема](https://github.com/VladimirDr/Labs/blob/master/Lab08/8_2/Ping8_2(all).png)
